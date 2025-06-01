@@ -23,15 +23,18 @@ int main()
 
         std::cout << "Enter City: ";
         std::getline(std::cin, city);
-
+       
         std::cout << "Enter Suburb (or press Enter to skip): ";
         std::getline(std::cin, suburb);
         if (!suburb.empty()) {
             replace(suburb);
             locationQuery += suburb + ",";
         }
-        locationQuery += city; 
-
+        
+        if (!city.empty()) {
+            replace(city);
+            locationQuery += city; ;
+        }
         if (!countryCode.empty()) {
             locationQuery += "," + countryCode;
         }
